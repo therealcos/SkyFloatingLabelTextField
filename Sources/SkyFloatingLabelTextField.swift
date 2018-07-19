@@ -107,6 +107,12 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
         }
     }
 
+    @objc dynamic open var titleKern: CGFloat = 0 {
+        didSet {
+            updateTitleLabel()
+        }
+    }
+    
     /// A UIColor value that determines the color of the bottom line when in the normal state
     @IBInspectable dynamic open var lineColor: UIColor = .lightGray {
         didSet {
@@ -490,9 +496,10 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
                 titleText = titleOrPlaceholder()
             }
         }
-        titleLabel.text = titleText
-        titleLabel.font = titleFont
-
+        
+        let attributedString = NSAttributedString(string: titleText ?? "", attributes: [.font: titleFont, .foregroundColor: titleColor, .kern: titleKern])
+        titleLabel.attributedText = attributedString
+        
         updateTitleVisibility(animated)
     }
 
