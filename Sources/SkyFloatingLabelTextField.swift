@@ -596,6 +596,8 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
 
     // MARK: - Positioning Overrides
 
+    @objc dynamic open var titleVerticalOffset: CGFloat = 0
+    
     /**
     Calculate the bounds for the title label. Override to create a custom size title field.
     - parameter bounds: The current bounds of the title
@@ -604,7 +606,7 @@ open class SkyFloatingLabelTextField: UITextField { // swiftlint:disable:this ty
     */
     open func titleLabelRectForBounds(_ bounds: CGRect, editing: Bool) -> CGRect {
         if editing {
-            return CGRect(x: 0, y: 0, width: bounds.size.width, height: titleHeight())
+            return CGRect(x: 0, y: titleVerticalOffset, width: bounds.size.width, height: titleHeight())
         }
         return CGRect(x: 0, y: titleHeight(), width: bounds.size.width, height: titleHeight())
     }
