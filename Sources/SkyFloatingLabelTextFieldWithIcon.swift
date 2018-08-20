@@ -247,7 +247,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             rect.origin.x -= CGFloat(iconWidth + iconMarginLeft)
         }
         
-        rect.origin.x = max(rect.origin.x, 10)
+        rect.origin.x = max(rect.origin.x, iconWidth > 0 ? 10 : 0)
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
@@ -265,7 +265,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             // don't change the editing field X position for RTL languages
         }
         
-        rect.origin.x = max(rect.origin.x, 10)
+        rect.origin.x = max(rect.origin.x, iconWidth > 0 ? 10 : 0)
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
@@ -284,7 +284,7 @@ open class SkyFloatingLabelTextFieldWithIcon: SkyFloatingLabelTextField {
             // don't change the editing field X position for RTL languages
         }
         
-        rect.origin.x = max(rect.origin.x, 10)
+        rect.origin.x = max(rect.origin.x, iconWidth > 0 ? 10 : 0)
         rect.size.width -= CGFloat(iconWidth + iconMarginLeft)
         return rect
     }
